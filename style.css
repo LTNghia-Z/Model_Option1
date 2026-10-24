@@ -1,0 +1,278 @@
+/* --- Base Styles & Reset (Mobile-First) --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9fb;
+  color: #212529;
+  padding: 16px;
+}
+
+/* Header & Nav */
+.main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 2px solid #e9ecef;
+  margin-bottom: 24px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+.nav-links a:focus-visible {
+  outline: 3px solid #0d6efd;
+  outline-offset: 4px;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.hero-text h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: block;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  background-color: #0d6efd;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0b5ed7;
+}
+
+/* Skills Section */
+.skills-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.skills-section h2,
+.projects-section h2,
+.contact-section h2 {
+  margin-bottom: 20px;
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skill-badge {
+  background-color: #e9ecef;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Projects Section (1 Column default on mobile) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.project-card {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.card-content h3 {
+  margin-bottom: 8px;
+}
+
+/* Contact Form */
+.contact-form {
+  max-width: 480px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.form-group input:focus-visible,
+.form-group textarea:focus-visible {
+  outline: 2px solid #0d6efd;
+  border-color: #0d6efd;
+}
+
+/* Footer */
+.main-footer {
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid #dee2e6;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* ===================================================
+   FEATURE 1: RESPONSIVE DESKTOP BREAKPOINT (768px+)
+   =================================================== */
+@media screen and (min-width: 768px) {
+  body {
+    padding: 24px 60px;
+  }
+
+  .main-header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .hero-section {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+  }
+
+  .hero-text {
+    flex: 1;
+  }
+
+  .hero-image {
+    flex: 1;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================================================
+   FEATURE 2: REDUCED MOTION (ACCESSIBILITY)
+   =================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .project-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ===================================================
+   FEATURE 3: ACCESSIBLE HIGH-CONTRAST DARK THEME
+   =================================================== */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .main-header,
+  .main-footer {
+    border-color: #2c2c2e;
+  }
+
+  .nav-links a {
+    color: #6ea8fe;
+  }
+
+  .skill-badge {
+    background-color: #242424;
+    color: #e0e0e0;
+  }
+
+  .project-card {
+    background-color: #1e1e1e;
+    border-color: #333333;
+    color: #e0e0e0;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    background-color: #242424;
+    border-color: #444444;
+    color: #ffffff;
+  }
+}
